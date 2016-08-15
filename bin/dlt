@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const nopt = require('nopt')
+const noptUsage = require('nopt-usage')
+
+const logAllContainers = require('../src/log-all-containers')
+
+const knownOpts = {
+  help: Boolean,
+  n: [Number, null],
+  color: Boolean
+}
+const shortHands = {
+  h: ['--help']
+}
+const defaults = {
+  n: 10,
+  color: true
+}
+
+const options = Object.assign({}, defaults, nopt(knownOpts, shortHands))
+
+if (options.help) {
+  const usage = noptUsage(knownOpts, shortHands)
+  console.log('Usage:')
+  console.log(usage)
+  process.exit()
+} else {
+  go()
+  setInterval(go, 1000)
+}
+
+function go() {
+  logAllContainers({
+    tail: options.n,
+    useColor: options.color
+  })
+}

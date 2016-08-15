@@ -1,0 +1,20 @@
+{
+  "name": "docker-logs-tail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/log-all-containers.js",
+  "bin": {
+    "dlt": "./bin/dlt"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tobias Cohen <me@tobiascohen.com>",
+  "license": "Apache License Version 2.0",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "dockerode": "^2.2.10",
+    "nopt": "^3.0.6",
+    "nopt-usage": "^0.1.0"
+  }
+}
