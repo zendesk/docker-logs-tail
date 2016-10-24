@@ -2,18 +2,17 @@
 
 Docker Logs Tail simultaneously tails logs for all running Docker containers, interleaving them in the command line output.
 
+Requires node v6.0.0 or later.
+
 ## Installation
 
-Clone the repo, and then run:
-
 ```
-npm install
-npm install --global .
+npm install -g docker-logs-tail
 ```
 
 ## Usage
 
-Simply run it to see the last 10 lines of logs, with new logs entries being displayed as they occur:
+Type `dlt` to see the last 10 lines of logs, with new logs entries being displayed as they occur:
 
 ```
 dlt
