@@ -13,7 +13,7 @@ module.exports = function logAllContainers({ tail, useColor }) {
           containerLogs(
             docker.getContainer(container.Id),
             container.Names[0].replace(/^\//, ''),
-            { tail, useColor }
+            { tail, useColor, onEnd: ()=>delete watchingContainers[container.Id] }
           )
         }
       })
