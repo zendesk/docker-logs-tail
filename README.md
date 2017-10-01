@@ -34,6 +34,16 @@ Terminal colors in the output can be disabled with `--no-color`:
 dlt --no-color
 ```
 
+Docker container names can be optionally excluded or specifically included. Matching is case-insensitive and supports wildcard:
+
+```
+# Include "registrator" and anything starting with "consul":
+dlt --include 'registrator,consul*'
+
+# Exclude anything with "sql" in the name, including differently cased "MySQL":
+dlt --exclude '*sql*'
+```
+
 ## Copyright and license
 
 Copyright 2016 Zendesk, Inc.
