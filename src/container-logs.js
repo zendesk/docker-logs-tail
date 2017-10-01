@@ -2,7 +2,7 @@ const stream = require('stream')
 
 const outputLog = require('./output-log')
 
-module.exports = function containerLogs(container, name, { tail, useColor }) {
+module.exports = function containerLogs(container, name, { tail, useColor, onEnd }) {
   var logStream = new stream.PassThrough()
   logStream.on('data', function(chunk){
     outputLog(name, chunk.toString(), { useColor })
@@ -18,8 +18,9 @@ module.exports = function containerLogs(container, name, { tail, useColor }) {
       return console.error(err.message)
     }
     container.modem.demuxStream(stream, logStream, logStream)
-    stream.on('end', () => {
+    stream.once('end', () => {
       logStream.end('(stopped)')
+      onEnd()
     })
   })
 }

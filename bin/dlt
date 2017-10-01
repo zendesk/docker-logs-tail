@@ -8,7 +8,9 @@ const logAllContainers = require('../src/log-all-containers')
 const knownOpts = {
   help: Boolean,
   n: [Number, null],
-  color: Boolean
+  color: Boolean,
+  include: String,
+  exclude: String
 }
 const shortHands = {
   h: ['--help']
@@ -33,6 +35,8 @@ if (options.help) {
 function go() {
   logAllContainers({
     tail: options.n,
-    useColor: options.color
+    useColor: options.color,
+    include: options.include,
+    exclude: options.exclude
   })
 }
