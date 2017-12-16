@@ -33,6 +33,7 @@ if (options.help) {
 function go() {
   logAllContainers({
     tail: options.n,
-    useColor: options.color
+    useColor: options.color,
+    pattern: options.argv.remain[0]
   })
 }
